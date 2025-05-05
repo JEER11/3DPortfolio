@@ -147,7 +147,7 @@ export const projects = [
         iconUrl: threads,
         theme: 'btn-back-green',
         name: 'Smart Lamp',
-        description: 'Motion-activated smart lighting system. Made in a 24-hour hackathon at MakeNJIT using ESP32, HC-SR04 ultrasonic sensor, and KY-016 RGB LED - automatically turns on when someone enters a room and off when they leave, combining real-time detection with energy-efficient automation.',
+        description: 'Motion-activated smart lighting system. Made in a 24-hour hackathon at MakeNJIT using ESP32 - automatically turns on when someone enters a room and off when they leave, with an integrated remote-control web server. Combining real-time detection with energy-efficient automation.',
         link: 'https://github.com/JEER11/Smart-Light.git',
     },
     {
@@ -155,7 +155,7 @@ export const projects = [
         theme: 'btn-back-blue',
         name: 'AI Media Analyzer',
         description: 'A suite of AI-powered tools to enhance media accessibility. It includes automated features like image captioning, document summarization, audio and video transcription, and summarization.',
-        link: 'https://github.com/Jeraldine/project_next13_car_showcase',
+        link: 'https://github.com/JEER11/AI-Media-Analyzer.git',
     },
     {
         iconUrl: snapgram,
