@@ -1,5 +1,6 @@
 #3D Developer Portfolio in React with Three.js
 
-![3D Website](https://ibb.co/C5q1Lh6v)
+![image](https://github.com/user-attachments/assets/adbd4fbb-8ac6-48cc-921d-94d9bfe824df)
+
 
 
