@@ -5,6 +5,7 @@ import {
 
 import { CTA } from "../components";
 import { experiences, skills } from "../constants";
+import { contact } from "../assets/icons";
 
 import "react-vertical-timeline-component/style.min.css";
 
@@ -63,7 +64,7 @@ const About = () => {
                 icon={
                   <div className='flex justify-center items-center w-full h-full'>
                     <img
-                      src={experience.icon}
+                      src={experience.icon || contact}
                       alt={experience.company_name}
                       className='w-[60%] h-[60%] object-contain'
                     />
