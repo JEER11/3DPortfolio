@@ -3,7 +3,7 @@
         "silent": true
     },
     "buildCommand": "npm run build",
-    "outputDirectory": "3DPortfolio-main/dist",
+    "outputDirectory": "dist",
     "rewrites": [
         {
             "source": "/(.*)",

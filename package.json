@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-  "dev": "npm --prefix 3DPortfolio-main run dev",
+  "dev": "vite",
   "check:assets": "node scripts/check-assets.js",
-  "build": "npm run check:assets && npm --prefix 3DPortfolio-main run build",
+  "build": "npm run check:assets && vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-  "preview": "npm --prefix 3DPortfolio-main run preview"
+  "preview": "vite preview"
   },
   "dependencies": {
     "@emailjs/browser": "^3.12.1",
