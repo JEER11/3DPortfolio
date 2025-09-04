@@ -26,3 +26,8 @@ dist-ssr
 # Ignore previously duplicated apps (cleaned up from repo)
 3DPortfolio-main/
 JRportofolio/
+
+# Environment files
+.env
+.env.*
+!.env.example
