@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "cd 3DPortfolio-main && npm run dev",
-    "build": "cd 3DPortfolio-main && npm run build",
+  "dev": "cd 3DPortfolio-main && npm run dev",
+  "check:assets": "node scripts/check-assets.js",
+  "build": "npm run check:assets && cd 3DPortfolio-main && npm run build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "cd 3DPortfolio-main && npm run preview"
   },
