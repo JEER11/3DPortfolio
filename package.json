@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-  "dev": "cd 3DPortfolio-main && npm run dev",
+  "dev": "npm --prefix 3DPortfolio-main run dev",
   "check:assets": "node scripts/check-assets.js",
-  "build": "npm run check:assets && cd 3DPortfolio-main && npm run build",
+  "build": "npm run check:assets && npm --prefix 3DPortfolio-main run build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "cd 3DPortfolio-main && npm run preview"
+  "preview": "npm --prefix 3DPortfolio-main run preview"
   },
   "dependencies": {
     "@emailjs/browser": "^3.12.1",
