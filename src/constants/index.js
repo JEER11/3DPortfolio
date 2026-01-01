@@ -93,6 +93,18 @@ export const skills = [
 
 export const experiences = [
     {
+        title: "AI Training Data Contributor",
+        company_name: "Handshake AI - Project Lexicon",
+        icon: robot,
+        iconBg: "#a2d2ff",
+        date: "Dec 2025 - Present",
+        points: [
+            "Participate in recorded video conversations covering diverse topics for AI training and research purposes.",
+            "Contribute to machine learning datasets by providing natural human interaction data to improve AI language models and conversational systems.",
+            "Maintain professional communication standards while on camera for 2-4 minute sessions.",
+        ],
+    },
+    {
         title: "Software Developer",
         company_name: "OpenQQuantify",
         icon: nounai,
@@ -162,6 +174,20 @@ export const projects = [
         name: 'AI Medical Website',
     description: 'Docteck, A modern web app for healthcare professionals and clients. It streamlines appointment scheduling, billing, and daily tasks, and features an AI-powered Doctor Assistant for quick medical guidance — all in a secure, responsive interface.',
         link: 'https://github.com/JEER11/Docteck.git',
+    },
+    {
+        iconUrl: estate,
+        theme: 'btn-back-black',
+        name: 'NJIT Interactive Kiosk',
+        description: 'An advanced campus navigation and wayfinding kiosk featuring an integrated AI assistant. Built with multimodal interaction capabilities including touch, gesture, and voice recognition to provide seamless indoor mapping and real-time guidance for students and visitors.',
+        link: 'https://github.com/JEER11/KioskApp.git',
+    },
+    {
+        iconUrl: pricewise,
+        theme: 'btn-back-yellow',
+        name: 'AI Video Search Extension',
+        description: 'Intelligent Chrome extension leveraging AI/ML to semantically analyze and rank videos beyond keyword matching. Built for ECE 422, it implements advanced networking principles and efficient data communication protocols to collect, categorize, and retrieve video content based on contextual understanding and user-defined tags.',
+        link: 'https://github.com/JEER11/AISearch',
     },
     {
         iconUrl: threads,
