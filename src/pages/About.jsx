@@ -60,13 +60,35 @@ const About = () => {
               <VerticalTimelineElement
                 key={experience.company_name}
                 date={experience.date}
-                iconStyle={{ background: experience.iconBg }}
+                iconStyle={{ 
+                  background: experience.iconBg, 
+                  display: 'flex', 
+                  justifyContent: 'center', 
+                  alignItems: 'center',
+                  boxShadow: 'none',
+                  overflow: 'visible'
+                }}
                 icon={
-                  <div className='flex justify-center items-center w-full h-full'>
+                  <div style={{ 
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '70%', 
+                    height: '70%',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                  }}>
                     <img
                       src={experience.icon || contact}
                       alt={experience.company_name}
-                      className='w-[60%] h-[60%] object-contain'
+                      style={{ 
+                        width: '100%', 
+                        height: '100%', 
+                        objectFit: 'contain',
+                        ...(experience.iconScale ? { transform: `scale(${experience.iconScale})` } : {})
+                      }}
                     />
                   </div>
                 }

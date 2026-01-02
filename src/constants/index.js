@@ -36,6 +36,10 @@ import {
     robot,
     detection,
     cloud,
+    phone,
+    team,
+    home,
+    cpu,
 
 } from "../assets/icons";
 
@@ -97,8 +101,8 @@ export const experiences = [
     {
         title: "AI Training Data Contributor",
         company_name: "Handshake AI - Project Lexicon",
-        icon: robot,
-        iconBg: "#a2d2ff",
+        icon: phone,
+        iconBg: "#8b5cf6",
         date: "Dec 2025 - Present",
         points: [
             "Participate in recorded video conversations covering diverse topics for AI training and research purposes.",
@@ -109,8 +113,8 @@ export const experiences = [
     {
         title: "Software Developer",
         company_name: "OpenQQuantify",
-        icon: nounai,
-        iconBg: "linear-gradient(135deg, rgba(124,58,237,0.95), rgba(139,92,246,0.95))",
+        icon: cpu,
+        iconBg: "#1e293b",
         iconScale: 1.25,
         date: "May 2025 - Present",
         points: [
@@ -121,8 +125,8 @@ export const experiences = [
     {
         title: "Customer Service",
         company_name: "Sarku Japan",
-        icon: sakura,
-        iconBg: "#accbe1",
+        icon: team,
+        iconBg: "#1e40af",
         date: "August 2022 - May 2025",
         points: [
             "Trained new employees, built a strong team, and helped customers with purchases and questions.",
@@ -133,8 +137,8 @@ export const experiences = [
     {
         title: "Childcare Provider",
         company_name: "Freelance/Nanny Lane",
-        icon: baby,
-        iconBg: "#fbc3bc",
+        icon: home,
+        iconBg: "#ec4899",
         date: "August 2019 - Mar 2025",
         points: [
             "Provided care for children aged 1-12, including meal prep, transportation, and educational activities.",
@@ -173,7 +177,7 @@ export const projects = [
     },
     {
         iconUrl: snapgram,
-        theme: 'btn-back-pink',
+        theme: 'btn-back-red',
         name: 'AI Medical Website',
     description: 'Docteck, A modern web app for healthcare professionals and clients. It streamlines appointment scheduling, billing, and daily tasks, and features an AI-powered Doctor Assistant for quick medical guidance, all in a secure, responsive interface.',
         link: 'https://github.com/JEER11/Docteck.git',
@@ -209,7 +213,7 @@ export const projects = [
     },
     {
         iconUrl: snapgram,
-        theme: 'btn-back-pink',
+        theme: 'btn-back-orange',
         name: '2D Shooter Game',
         description: 'Implemented mechanics like gun aiming, shooting, and target spawning. With a scoring system, timer, bullet count, and a restart function. Gained hands-on experience in game development, coding in C# and utilizing Unity to bring game concepts to life.',
         link: 'https://github.com/JEER11/Onion-Shoots.git',

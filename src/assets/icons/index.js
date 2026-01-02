@@ -39,6 +39,10 @@ import vss from './vss.svg'
 import robot from './robot.svg'
 import detection from './detection.png'
 import cloud from './cloud.png'
+import phone from './Glassicons/Phone.svg'
+import team from './Glassicons/team.svg'
+import home from './Glassicons/home.svg'
+import cpu from './Glassicons/cpu.svg'
 
 export {
     css,
@@ -81,5 +85,9 @@ export {
     vss,
     robot,
     detection,
-    cloud
+    cloud,
+    phone,
+    team,
+    home,
+    cpu
 }
