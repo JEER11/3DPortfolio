@@ -37,6 +37,8 @@ import sakura from './sakura.svg'
 import baby from './baby.svg'
 import vss from './vss.svg'
 import robot from './robot.svg'
+import detection from './detection.png'
+import cloud from './cloud.png'
 
 export {
     css,
@@ -77,5 +79,7 @@ export {
     sakura,
     baby,
     vss,
-    robot
+    robot,
+    detection,
+    cloud
 }

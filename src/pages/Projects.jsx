@@ -28,6 +28,7 @@ const Projects = () => {
                   src={project.iconUrl}
                   alt='threads'
                   className='w-1/2 h-1/2 object-contain'
+                  style={project.iconScale ? { transform: `scale(${project.iconScale})` } : {}}
                 />
               </div>
             </div>

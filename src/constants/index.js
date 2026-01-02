@@ -34,6 +34,8 @@ import {
     baby,
     vss,
     robot,
+    detection,
+    cloud,
 
 } from "../assets/icons";
 
@@ -162,8 +164,9 @@ export const socialLinks = [
 
 export const projects = [
     {
-        iconUrl: robot,
-        theme: 'btn-back-red',
+        iconUrl: detection,
+        theme: 'btn-back-pink',
+        iconScale: 1.2,
         name: 'ML Object Detection',
         description: 'An automated object tracking system using ESP32 cam, web controller and buzzer to detect and deter pests from crops. Programming for real-time tracking and controlled algorithms using Edge Impulse to enhance efficiency.',
         link: 'https://github.com/JEER11/ML-Object.Tracking.Robot.git',
@@ -172,7 +175,7 @@ export const projects = [
         iconUrl: snapgram,
         theme: 'btn-back-pink',
         name: 'AI Medical Website',
-    description: 'Docteck, A modern web app for healthcare professionals and clients. It streamlines appointment scheduling, billing, and daily tasks, and features an AI-powered Doctor Assistant for quick medical guidance — all in a secure, responsive interface.',
+    description: 'Docteck, A modern web app for healthcare professionals and clients. It streamlines appointment scheduling, billing, and daily tasks, and features an AI-powered Doctor Assistant for quick medical guidance, all in a secure, responsive interface.',
         link: 'https://github.com/JEER11/Docteck.git',
     },
     {
@@ -183,8 +186,9 @@ export const projects = [
         link: 'https://github.com/JEER11/KioskApp.git',
     },
     {
-        iconUrl: pricewise,
+        iconUrl: cloud,
         theme: 'btn-back-yellow',
+        iconScale: 1.2,
         name: 'AI Video Search Extension',
         description: 'Intelligent Chrome extension leveraging AI/ML to semantically analyze and rank videos beyond keyword matching. Built for ECE 422, it implements advanced networking principles and efficient data communication protocols to collect, categorize, and retrieve video content based on contextual understanding and user-defined tags.',
         link: 'https://github.com/JEER11/AISearch',
