@@ -115,6 +115,11 @@ body:has(.card[data-color="green"]:hover) {
   transform-origin: bottom right;
   transform: rotateZ(15deg);
   will-change: transform;
+  box-shadow: 16px 0 40px rgba(60, 60, 60, 0.5);
+}
+
+/* Dark mode - lighter shadow */
+.dark .block-container .btn-back {
   box-shadow: 16px 0 40px rgba(100, 100, 100, 0.3);
 }
 
@@ -159,6 +164,23 @@ body:has(.card[data-color="green"]:hover) {
   transform-style: preserve-3d;
   transform-origin: top left;
   overflow: hidden;
+}
+
+/* Skills section - higher contrast in light mode only */
+.skills-section .block-container .btn-front {
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Reset for dark mode - use default translucent style */
+.dark .skills-section .block-container .btn-front {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: none;
+}
+
+/* GitHub icon in skills - invert to white in dark mode */
+.dark .skills-section .block-container img[alt="GitHub"] {
+  filter: invert(1);
 }
 
 .block-container:hover > .btn-back {

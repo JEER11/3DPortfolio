@@ -46,7 +46,7 @@ const About = () => {
       <div className='py-10 flex flex-col'>
         <h3 className='subhead-text dark:text-white'>My Skills</h3>
 
-        <div className='mt-16 flex flex-wrap gap-12'>
+        <div className='mt-16 flex flex-wrap gap-12 skills-section'>
           {skills.map((skill) => (
             <div className='block-container w-20 h-20' key={skill.name}>
               <div className='btn-back rounded-xl' />
