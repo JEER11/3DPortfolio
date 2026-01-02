@@ -24,6 +24,10 @@ const Home = () => {
   const [isPlayingMusic, setIsPlayingMusic] = useState(true);
   const [visibleStage, setVisibleStage] = useState(currentStage);
   const [isLoading, setIsLoading] = useState(true);
+  const [isHolding, setIsHolding] = useState(false);
+  const holdTimerRef = useRef(null);
+  const holdStartTimeRef = useRef(0);
+  const accumulatedTimeRef = useRef(0);
 
   useEffect(() => {
     // Show loading animation when component mounts (including navigation)
@@ -33,6 +37,50 @@ const Home = () => {
     }, 1500);
     return () => clearTimeout(timer);
   }, []); // Runs on mount and navigation to Home
+
+  useEffect(() => {
+    if (isHolding) {
+      holdStartTimeRef.current = Date.now();
+      
+      holdTimerRef.current = setInterval(() => {
+        const elapsed = Date.now() - holdStartTimeRef.current + accumulatedTimeRef.current;
+        
+        // Cycle through stages: 1 -> 3 (projects) -> 2 (about) -> 4 (contact) -> 3 -> 2 -> 4...
+        if (elapsed >= 6000) {
+          // Reset accumulated time and cycle back to stage 3
+          accumulatedTimeRef.current = elapsed % 6000;
+          holdStartTimeRef.current = Date.now();
+        }
+        
+        const cycleTime = elapsed % 6000;
+        
+        if (cycleTime < 2000) {
+          // 0-2 seconds: Stage 3 (Projects)
+          setCurrentStage(3);
+        } else if (cycleTime < 4000) {
+          // 2-4 seconds: Stage 2 (About - skills and experience)
+          setCurrentStage(2);
+        } else {
+          // 4-6 seconds: Stage 4 (Contact)
+          setCurrentStage(4);
+        }
+      }, 100);
+    } else {
+      if (holdTimerRef.current) {
+        clearInterval(holdTimerRef.current);
+        // Save accumulated time when released
+        if (holdStartTimeRef.current > 0) {
+          accumulatedTimeRef.current += Date.now() - holdStartTimeRef.current;
+        }
+      }
+    }
+
+    return () => {
+      if (holdTimerRef.current) {
+        clearInterval(holdTimerRef.current);
+      }
+    };
+  }, [isHolding]);
 
   useEffect(() => {
     let timeout;
@@ -88,9 +136,16 @@ const Home = () => {
   const [biplaneScale, biplanePosition] = adjustBiplaneForScreenSize();
   const [islandScale, islandPosition] = adjustIslandForScreenSize();
 
-  // Add handlers for mouse/touch events to control isRotating
-  const handlePointerDown = () => setIsRotating(true);
-  const handlePointerUp = () => setIsRotating(false);
+  // Add handlers for mouse/touch events to control stage cycling
+  const handlePointerDown = () => {
+    setIsRotating(true);
+    setIsHolding(true);
+  };
+  
+  const handlePointerUp = () => {
+    setIsRotating(false);
+    setIsHolding(false);
+  };
 
   return (
     <section className='w-full h-screen relative'>

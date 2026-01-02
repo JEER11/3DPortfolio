@@ -18,7 +18,7 @@ const HomeInfo = ({ currentStage }) => {
     return (
       <div className='info-box'>
         <p className='font-medium sm:text-xl text-center'>
-          Looking forwards to meeting you <br /> and sharing my journey
+           My skills and experience  <br /> 
         </p>
 
         <Link to='/about' className='neo-brutalism-white neo-btn'>
@@ -33,11 +33,11 @@ const HomeInfo = ({ currentStage }) => {
     return (
       <div className='info-box'>
         <p className='font-medium text-center sm:text-xl'>
-          I've worked in many projects. <br /> Take a look!
+          I've worked in many projects. <br /> 
         </p>
 
         <Link to='/projects' className='neo-brutalism-white neo-btn'>
-          Visit my portfolio
+          Take a look
           <img src={arrow} alt='arrow' className='w-4 h-4 object-contain' />
         </Link>
       </div>
@@ -48,7 +48,7 @@ const HomeInfo = ({ currentStage }) => {
     return (
       <div className='info-box'>
       <p className='font-medium sm:text-xl text-center'>
-        Get in contact with me! <br/> Eager to hear from you
+        Get in contact with me! <br/> 
       </p>
 
       <Link to='/contact' className='neo-brutalism-white neo-btn'>
