@@ -23,6 +23,16 @@ const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
   const [isPlayingMusic, setIsPlayingMusic] = useState(true);
   const [visibleStage, setVisibleStage] = useState(currentStage);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Show loading animation when component mounts (including navigation)
+    setIsLoading(true);
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []); // Runs on mount and navigation to Home
 
   useEffect(() => {
     let timeout;
@@ -84,6 +94,26 @@ const Home = () => {
 
   return (
     <section className='w-full h-screen relative'>
+      {isLoading && (
+        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -mt-12 z-50 pointer-events-none'>
+          <div className='relative w-[200px] h-[10px] rounded-full bg-gray-200 shadow-lg overflow-hidden border-2 border-white'>
+            <div 
+              className='absolute top-1/2 left-0 w-4 h-4 rounded-full -translate-y-1/2 bg-white shadow-2xl'
+              style={{
+                boxShadow: '0 0 0 3px rgba(255,255,255,1), 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(200, 200, 255, 0.8)',
+                animation: 'slideLoader 1.1s ease-in-out 0s infinite alternate'
+              }}
+            ></div>
+          </div>
+          <style>{`
+            @keyframes slideLoader {
+              0% { transform: translate(0, -50%); }
+              100% { transform: translate(184px, -50%); }
+            }
+          `}</style>
+        </div>
+      )}
+      
       <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center'>
         {currentStage && <HomeInfo currentStage={currentStage} />}
       </div>
@@ -99,7 +129,7 @@ const Home = () => {
         onTouchStart={handlePointerDown}
         onTouchEnd={handlePointerUp}
       >
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={null}>
           <directionalLight position={[1, 1, 1]} intensity={2} />
           <ambientLight intensity={0.5} />
           <pointLight position={[10, 5, 10]} intensity={2} />
