@@ -44,7 +44,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
             
             {/* Sun icon for light mode */}
             <svg 
-              className={`absolute right-0.5 w-3.5 h-3.5 text-white transition-all duration-500 ${darkMode ? 'opacity-0 rotate-0 scale-0' : 'opacity-100 -rotate-180 scale-100'}`}
+              className={`absolute right-0.5 w-3.5 h-3.5 text-purple-400 transition-all duration-500 ${darkMode ? 'opacity-0 rotate-0 scale-0' : 'opacity-100 -rotate-180 scale-100'}`}
               fill="currentColor" 
               viewBox="0 0 20 20"
             >
