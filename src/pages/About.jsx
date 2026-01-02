@@ -61,7 +61,7 @@ const About = () => {
                 key={experience.company_name}
                 date={experience.date}
                 iconStyle={{ 
-                  background: experience.iconBg,
+                  background: `radial-gradient(circle at center, rgba(0, 0, 0, 0.4) 0%, transparent 70%), ${experience.iconBg}`,
                   boxShadow: 'none'
                 }}
                 icon={
