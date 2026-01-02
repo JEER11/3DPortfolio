@@ -6,8 +6,8 @@ const HomeInfo = ({ currentStage }) => {
   if (currentStage === 1)
     return (
       <h1 className='sm:text-xl sm:leading-snug text-center neo-brutalism-blue py-4 px-8 text-white mx-5'>
-        Hello! I'm
-        <span className='font-semibold mx-2 text-white'>Jeraldine</span>
+        I'm
+        <span className='font-semibold mx-2 text-white'>Jeraldine Rodriguez</span>
         
         <br />
         A Computer Engineer at NJIT
@@ -33,7 +33,7 @@ const HomeInfo = ({ currentStage }) => {
     return (
       <div className='info-box'>
         <p className='font-medium text-center sm:text-xl'>
-          Have indulged in many projects. <br /> Take a look!
+          I've worked in many projects. <br /> Take a look!
         </p>
 
         <Link to='/projects' className='neo-brutalism-white neo-btn'>

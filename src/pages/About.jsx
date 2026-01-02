@@ -13,7 +13,7 @@ const About = () => {
   return (
     <section className='max-container'>
       <h1 className='head-text'>
-        Hello there, I'm{" "}
+        Hello, I'm{" "}
         <span className='blue-gradient_text font-semibold drop-shadow'>
           {" "}
           Jeraldine!
@@ -23,7 +23,7 @@ const About = () => {
 
       <div className='mt-5 flex flex-col gap-3 text-slate-500'>
         <p>
-          Computer Engineer at NJIT, specializing in software development and Computer communications. I have a passion for creating innovative solutions. 
+          Computer Engineer at NJIT, specializing in software development, Computer communications and architecture. I have a passion for creating, learning and using technology to solve real world problems. 
         </p>
       </div>
 
@@ -50,7 +50,7 @@ const About = () => {
         <h3 className='subhead-text'>Work Experience.</h3>
         <div className='mt-5 flex flex-col gap-3 text-slate-500'>
           <p>
-            Currently looking for internship opportunities to gain hands-on experience in the field of software development and Engineering. I am eager to apply my skills and knowledge in a real-world setting, while also learning from industry professionals.
+            Currently looking for an internship or full-time opportunity to gain hands on experience in the field of software, computer and electrical engineering. I am eager to apply my skills and knowledge in a real world setting, while also learning from industry professionals.
           </p>
         </div>
 
@@ -61,36 +61,23 @@ const About = () => {
                 key={experience.company_name}
                 date={experience.date}
                 iconStyle={{ 
-                  background: experience.iconBg, 
-                  display: 'flex', 
-                  justifyContent: 'center', 
-                  alignItems: 'center',
-                  boxShadow: 'none',
-                  overflow: 'visible'
+                  background: experience.iconBg,
+                  boxShadow: 'none'
                 }}
                 icon={
-                  <div style={{ 
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    width: '70%', 
-                    height: '70%',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                  }}>
-                    <img
-                      src={experience.icon || contact}
-                      alt={experience.company_name}
-                      style={{ 
-                        width: '100%', 
-                        height: '100%', 
-                        objectFit: 'contain',
-                        ...(experience.iconScale ? { transform: `scale(${experience.iconScale})` } : {})
-                      }}
-                    />
-                  </div>
+                  <img
+                    src={experience.icon || contact}
+                    alt={experience.company_name}
+                    style={{ 
+                      width: experience.iconStyle?.width || '60%',
+                      height: experience.iconStyle?.height || '60%',
+                      objectFit: 'contain',
+                      position: 'absolute',
+                      top: experience.iconStyle?.top || '50%',
+                      left: experience.iconStyle?.left || '50%',
+                      transform: `translate(-50%, -50%) ${experience.iconScale ? `scale(${experience.iconScale})` : ''}`
+                    }}
+                  />
                 }
                 contentStyle={{
                   borderBottom: "8px",
