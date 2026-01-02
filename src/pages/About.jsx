@@ -2,6 +2,7 @@ import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
+import { useState, useEffect } from "react";
 
 import { CTA } from "../components";
 import { experiences, skills } from "../constants";
@@ -10,6 +11,21 @@ import { contact } from "../assets/icons";
 import "react-vertical-timeline-component/style.min.css";
 
 const About = () => {
+  const [isDarkMode, setIsDarkMode] = useState(document.documentElement.classList.contains('dark'));
+
+  useEffect(() => {
+    // Create an observer to watch for dark mode changes
+    const observer = new MutationObserver(() => {
+      setIsDarkMode(document.documentElement.classList.contains('dark'));
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    return () => observer.disconnect();
+  }, []);
   return (
     <section className='max-container'>
       <h1 className='head-text dark:text-white'>
@@ -62,7 +78,7 @@ const About = () => {
                 date={experience.date}
                 dateClassName='dark:text-slate-300'
                 iconStyle={{ 
-                  background: `radial-gradient(circle at center, rgba(0, 0, 0, 0.4) 0%, transparent 70%), ${experience.iconBg}`,
+                  background: `radial-gradient(circle at center, rgba(0, 0, 0, 0.7) 0%, transparent 80%), ${experience.iconBg}`,
                   boxShadow: 'none'
                 }}
                 icon={
@@ -85,10 +101,10 @@ const About = () => {
                   borderStyle: "solid",
                   borderBottomColor: experience.iconBg,
                   boxShadow: "none",
-                  background: document.documentElement.classList.contains('dark') ? '#0f172a' : '#fff',
+                  background: isDarkMode ? '#0f172a' : '#fff',
                 }}
                 contentArrowStyle={{
-                  borderRight: document.documentElement.classList.contains('dark') ? '7px solid #0f172a' : '7px solid #fff',
+                  borderRight: isDarkMode ? '7px solid #0f172a' : '7px solid #fff',
                 }}
               >
                 <div>

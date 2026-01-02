@@ -195,7 +195,13 @@ body:has(.card[data-color="green"]:hover) {
   border-color: #a78bfa #a78bfa #ede9fe #ede9fe;
 }
 
-/* Vertical Timeline Line - Make translucent in dark mode */
+/* Vertical Timeline Line Styles */
+/* Light mode - darker line for visibility */
+.vertical-timeline::before {
+  background: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Dark mode - lighter translucent line */
 .dark .vertical-timeline::before {
   background: rgba(255, 255, 255, 0.3) !important;
 }

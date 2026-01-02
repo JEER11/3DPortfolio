@@ -116,7 +116,7 @@ export const experiences = [
         title: "Software Developer",
         company_name: "OpenQQuantify | Internship",
         icon: cpu,
-        iconBg: "#8b5cfa",
+        iconBg: "#1e3a8a",
         iconScale: 1.1,
         iconStyle: { width: '130%', height: '130%', top: '49%', left: '55%' },
         date: "May 2025 - Sept 2025",
