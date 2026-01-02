@@ -7,14 +7,14 @@ import { arrow } from "../assets/icons";
 const Projects = () => {
   return (
     <section className='max-container'>
-      <h1 className='head-text'>
+      <h1 className='head-text dark:text-white'>
         My{" "}
         <span className='blue-gradient_text drop-shadow font-semibold'>
           Projects
         </span>
       </h1>
 
-      <p className='text-slate-500 mt-2 leading-relaxed'>
+      <p className='text-slate-500 dark:text-slate-300 mt-2 leading-relaxed'>
         I've learned a lot from personal, school, and team projects. Always trying to work on something new and exciting for me. Here are some of the projects I've worked on.
       </p>
 
@@ -34,10 +34,10 @@ const Projects = () => {
             </div>
 
             <div className='mt-5 flex flex-col'>
-              <h4 className='text-2xl font-poppins font-semibold'>
+              <h4 className='text-2xl font-poppins font-semibold dark:text-white'>
                 {project.name}
               </h4>
-              <p className='mt-2 text-slate-500'>{project.description}</p>
+              <p className='mt-2 text-slate-500 dark:text-slate-300'>{project.description}</p>
               <div className='mt-5 flex items-center gap-2 font-poppins'>
                 <Link
                   to={project.link}

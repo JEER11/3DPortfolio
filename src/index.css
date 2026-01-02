@@ -39,11 +39,11 @@ body:has(.card[data-color="green"]:hover) {
   }
 
   .input {
-    @apply bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5 mt-2.5 font-normal shadow-card;
+    @apply bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 dark:focus:ring-purple-500 dark:focus:border-purple-500 block w-full p-2.5 mt-2.5 font-normal shadow-card;
   }
 
   .textarea {
-    @apply block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-200 focus:ring-purple-400 focus:border-purple-400 mt-2.5 font-normal shadow-card;
+    @apply block p-2.5 w-full text-sm text-gray-900 dark:text-white bg-white dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-slate-700 focus:ring-purple-400 focus:border-purple-400 dark:focus:ring-purple-500 dark:focus:border-purple-500 mt-2.5 font-normal shadow-card;
   }
 
   .btn {
@@ -115,7 +115,7 @@ body:has(.card[data-color="green"]:hover) {
   transform-origin: bottom right;
   transform: rotateZ(15deg);
   will-change: transform;
-  box-shadow: 16px 0 40px #e4e4e4;
+  box-shadow: 16px 0 40px rgba(100, 100, 100, 0.3);
 }
 
 .block-container .btn-back-red {
@@ -152,7 +152,7 @@ body:has(.card[data-color="green"]:hover) {
   z-index: 1;
   width: inherit;
   height: inherit;
-  background-color: #ffffff33;
+  background-color: rgba(255, 255, 255, 0.08);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   transition: 250ms;
@@ -193,4 +193,9 @@ body:has(.card[data-color="green"]:hover) {
 
 .Loader {
   border-color: #a78bfa #a78bfa #ede9fe #ede9fe;
+}
+
+/* Vertical Timeline Line - Make translucent in dark mode */
+.dark .vertical-timeline::before {
+  background: rgba(255, 255, 255, 0.3) !important;
 }

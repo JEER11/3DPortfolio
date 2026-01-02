@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const CTA = () => {
   return (
     <section className='cta'>
-      <p className='cta-text'>
+      <p className='cta-text dark:text-white'>
         Want to get in contact? <br className='sm:block hidden' />
         
       </p>

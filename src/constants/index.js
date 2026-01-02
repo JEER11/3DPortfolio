@@ -100,7 +100,7 @@ export const skills = [
 export const experiences = [
     {
         title: "AI Training Data Contributor",
-        company_name: "Handshake AI - Project Lexicon",
+        company_name: "Handshake AI | Crontract",
         icon: phone,
         iconBg: "#ef4444",
         iconScale: 1.1,
@@ -114,7 +114,7 @@ export const experiences = [
     },
     {
         title: "Software Developer",
-        company_name: "OpenQQuantify",
+        company_name: "OpenQQuantify | Internship",
         icon: cpu,
         iconBg: "#8b5cfa",
         iconScale: 1.1,
@@ -128,7 +128,7 @@ export const experiences = [
     },
     {
         title: "Customer Service",
-        company_name: "Sarku Japan",
+        company_name: "Sarku Japan | Part-time",
         icon: team,
         iconBg: "#059669",
         iconScale: 1.1,
@@ -142,7 +142,7 @@ export const experiences = [
     },
     {
         title: "Childcare Provider",
-        company_name: "Freelance/Nanny Lane",
+        company_name: "Freelance/Nanny Lane | Full-time",
         icon: home,
         iconBg: "#ec4899",
         iconScale: 1.1,

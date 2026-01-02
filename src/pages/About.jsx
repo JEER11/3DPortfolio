@@ -12,7 +12,7 @@ import "react-vertical-timeline-component/style.min.css";
 const About = () => {
   return (
     <section className='max-container'>
-      <h1 className='head-text'>
+      <h1 className='head-text dark:text-white'>
         Hello, I'm{" "}
         <span className='blue-gradient_text font-semibold drop-shadow'>
           {" "}
@@ -21,14 +21,14 @@ const About = () => {
         
       </h1>
 
-      <div className='mt-5 flex flex-col gap-3 text-slate-500'>
+      <div className='mt-5 flex flex-col gap-3 text-slate-500 dark:text-slate-300'>
         <p>
           Computer Engineer at NJIT, specializing in software development, Computer communications and architecture. I have a passion for creating, learning and using technology to solve real world problems. 
         </p>
       </div>
 
       <div className='py-10 flex flex-col'>
-        <h3 className='subhead-text'>My Skills</h3>
+        <h3 className='subhead-text dark:text-white'>My Skills</h3>
 
         <div className='mt-16 flex flex-wrap gap-12'>
           {skills.map((skill) => (
@@ -47,8 +47,8 @@ const About = () => {
       </div>
 
       <div className='py-16'>
-        <h3 className='subhead-text'>Work Experience.</h3>
-        <div className='mt-5 flex flex-col gap-3 text-slate-500'>
+        <h3 className='subhead-text dark:text-white'>Work Experience.</h3>
+        <div className='mt-5 flex flex-col gap-3 text-slate-500 dark:text-slate-300'>
           <p>
             Currently looking for an internship or full-time opportunity to gain hands on experience in the field of software, computer and electrical engineering. I am eager to apply my skills and knowledge in a real world setting, while also learning from industry professionals.
           </p>
@@ -60,6 +60,7 @@ const About = () => {
               <VerticalTimelineElement
                 key={experience.company_name}
                 date={experience.date}
+                dateClassName='dark:text-slate-300'
                 iconStyle={{ 
                   background: `radial-gradient(circle at center, rgba(0, 0, 0, 0.4) 0%, transparent 70%), ${experience.iconBg}`,
                   boxShadow: 'none'
@@ -84,14 +85,18 @@ const About = () => {
                   borderStyle: "solid",
                   borderBottomColor: experience.iconBg,
                   boxShadow: "none",
+                  background: document.documentElement.classList.contains('dark') ? '#0f172a' : '#fff',
+                }}
+                contentArrowStyle={{
+                  borderRight: document.documentElement.classList.contains('dark') ? '7px solid #0f172a' : '7px solid #fff',
                 }}
               >
                 <div>
-                  <h3 className='text-black text-xl font-poppins font-semibold'>
+                  <h3 className='text-black dark:text-white text-xl font-poppins font-semibold'>
                     {experience.title}
                   </h3>
                   <p
-                    className='text-black-500 font-medium text-base'
+                    className='text-black-500 dark:text-slate-300 font-medium text-base'
                     style={{ margin: 0 }}
                   >
                     {experience.company_name}
@@ -102,7 +107,7 @@ const About = () => {
                   {experience.points.map((point, index) => (
                     <li
                       key={`experience-point-${index}`}
-                      className='text-black-500/50 font-normal pl-1 text-sm'
+                      className='text-black-500/50 dark:text-slate-400 font-normal pl-1 text-sm'
                     >
                       {point}
                     </li>
@@ -114,7 +119,7 @@ const About = () => {
         </div>
       </div>
 
-      <hr className='border-slate-200' />
+      <hr className='border-slate-200 dark:border-slate-700' />
 
       <CTA />
     </section>
