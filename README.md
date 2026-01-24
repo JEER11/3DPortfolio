@@ -25,8 +25,8 @@ An interactive 3D portfolio built with React, Vite, Tailwind CSS, and React Thre
 ## Getting started
 
 Prerequisites:
-- Node.js 18+ recommended
-- npm 8+
+- Node.js 20+ recommended
+- npm 20+
 
 Setup:
 1. Install dependencies
