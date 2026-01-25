@@ -1,157 +1,117 @@
-# 3D Portfolio Website
 
-<<<<<<< HEAD
+# Jeraldine's 3D Portfolio
+
 Live: [https://jeraldineportfolio.vercel.app](https://jeraldineportfolio.vercel.app)
 
-An interactive 3D portfolio built with React, Vite, Tailwind CSS, and React Three Fiber. Deployed on Vercel with a simple, reliable build pipeline and pre-build asset checks.
+This is my interactive 3D portfolio, built with React, Vite, Tailwind CSS, and React Three Fiber. It showcases my projects, skills, and experience in a clean, modern interface. The site is fully responsive and deployed on Vercel.
 
-![screenshot](https://github.com/user-attachments/assets/7f0e9a73-5895-44e9-a189-eecd71d882e6)
+![Project GIFs](src/assets/images/DocDashCare.gif)
+![Project GIFs](src/assets/images/DocAssistBill.gif)
 
-=======
-Live: https://jeraldineportfolio.vercel.app
 
-An interactive 3D portfolio built with React, Vite, Tailwind CSS, and React Three Fiber. Deployed on Vercel with a simple, reliable build pipeline and pre-build asset checks.
+## Tech Stack
 
-![screenshot](https://github.com/user-attachments/assets/57830a71-e543-43b7-9800-491927b6d774)
->>>>>>> d5bdf60 (Update portfolio: new gif stack, restored headings, UI fixes)
+React 18, Vite, Tailwind CSS, Three.js (React Three Fiber & Drei), React Router, EmailJS
 
-## Tech stack
-
-- React 18 + Vite
-- Tailwind CSS
-- Three.js via React Three Fiber and Drei
-- React Router
-- EmailJS for the contact form
 
 ## Features
 
-- 3D models and animations rendered in WebGL (glTF/GLB models)
-- Smooth navigation between sections (Home, About, Projects, Contact)
-- Contact form that sends emails via EmailJS
-- Pre-build asset validation to prevent missing-file deploys
+- Interactive 3D models and smooth animations
+- Modern, responsive design
+- Project GIF stack preview
+- Contact form (EmailJS, no backend required)
+- Pre-build asset validation for reliability
 
-## Getting started
 
-Prerequisites:
-- Node.js 20+ recommended
-- npm 20+
+## Getting Started
 
-Setup:
-1. Install dependencies
-	 - Windows PowerShell
-		 ```powershell
-		 npm install
-		 ```
-2. Configure environment variables (for the contact form)
-	 - Copy `.env.example` to `.env` and fill in the values from your EmailJS account:
-		 ```env
-		 VITE_APP_EMAILJS_SERVICE_ID=your_service_id
-		 VITE_APP_EMAILJS_TEMPLATE_ID=your_template_id
-		 VITE_APP_EMAILJS_PUBLIC_KEY=your_public_key
-		 ```
-3. Start the dev server
-	 - Windows PowerShell
-		 ```powershell
-		 npm run dev
-		 ```
-	 - Open the URL shown in the terminal (usually http://localhost:5173).
+1. Install dependencies:
+   ```powershell
+   npm install
+   ```
+2. Copy `.env.example` to `.env` and add your EmailJS credentials:
+   ```env
+   VITE_APP_EMAILJS_SERVICE_ID=your_service_id
+   VITE_APP_EMAILJS_TEMPLATE_ID=your_template_id
+   VITE_APP_EMAILJS_PUBLIC_KEY=your_public_key
+   ```
+3. Start the dev server:
+   ```powershell
+   npm run dev
+   ```
+   Open the URL shown in the terminal (usually http://localhost:5173).
+4. To build and preview production:
+   ```powershell
+   npm run build
+   npm run preview
+   ```
 
-Build and preview locally:
-- Build:
-	```powershell
-	npm run build
-	```
-- Preview the production build:
-	```powershell
-	npm run preview
-	```
 
-## Environment variables (EmailJS)
+## Environment Variables
 
-These are consumed in `src/pages/Contact.jsx`:
+Used for the contact form (see `src/pages/Contact.jsx`):
 - `VITE_APP_EMAILJS_SERVICE_ID`
 - `VITE_APP_EMAILJS_TEMPLATE_ID`
 - `VITE_APP_EMAILJS_PUBLIC_KEY`
 
-Notes:
-- Do not commit secrets. `.env` is ignored by git; use `.env.example` as a template.
-- Consider updating `to_name` and `to_email` in `src/pages/Contact.jsx` to your own values or handle them in the EmailJS template.
+Do not commit secrets. Use `.env.example` as a template.
+
 
 ## Scripts
 
-- `npm run dev` — start Vite dev server
-- `npm run build` — run a pre-build asset check, then build for production
-- `npm run preview` — preview the production build locally
-- `npm run check:assets` — verifies that all icons imported in `src/assets/icons/index.js` exist on disk
+- `npm run dev` — Start the dev server
+- `npm run build` — Pre-build asset check, then build for production
+- `npm run preview` — Preview the production build
+- `npm run check:assets` — Verify all icons exist on disk
 
-## Project structure (high level)
 
-```
+## Project Structure
+
 src/
 	assets/
-		3d/               # GLB models (e.g., cloud_station.glb, sleeping_cat.glb)
-		icons/            # SVG icons; imports listed in assets/icons/index.js
-		images/           # Image assets
-	components/         # Reusable UI components
-	hooks/              # Custom hooks
-	models/             # 3D model components (Three/Fiber)
-	pages/              # Route-level pages (Home, About, Projects, Contact)
-	constants/          # Static data (skills, projects, links)
-	main.jsx            # App entry
-	App.jsx             # Root layout
-```
+		3d/        (3D models)
+		icons/     (SVG icons)
+		images/    (GIFs, images)
+	components/  (UI components)
+	hooks/       (Custom hooks)
+	models/      (3D model components)
+	pages/       (Home, About, Projects, Contact)
+	constants/   (Static data)
+	main.jsx     (App entry)
+	App.jsx      (Root layout)
 
-Other notable files:
-- `vite.config.js` — Vite config; includes `assetsInclude` for `*.glb`
-- `vercel.json` — Vercel config for build/output and SPA rewrites
-- `scripts/check-assets.js` — Pre-build script that fails fast if an icon import is missing
 
-## How it works (quick tour)
+Other files:
+- `vite.config.js` — Vite config
+- `vercel.json` — Vercel deployment config
+- `scripts/check-assets.js` — Pre-build asset check
 
-- 3D scene: Built with React Three Fiber and Drei. GLB models are loaded via standard loaders and rendered in the `Canvas`.
-- Routing: `react-router-dom` switches between pages.
-- Contact form: Uses EmailJS to send messages without a custom backend. Credentials are provided via Vite env variables.
-- Asset guardrail: During `npm run build`, `scripts/check-assets.js` scans `src/assets/icons/index.js` and verifies the imported files exist. If not, build fails with a clear error.
 
-## Deploying to Vercel
+## How It Works
 
-This repo includes `vercel.json` to simplify deploys:
-- `buildCommand`: `npm run build`
-- `outputDirectory`: `dist`
-- SPA rewrites to `/` so client-side routing works
+- 3D scenes and models rendered with React Three Fiber
+- Routing with React Router
+- Contact form uses EmailJS (no backend needed)
+- Asset check script ensures all icons exist before build
 
-Steps:
-1. Push to GitHub
-2. Create a Vercel project and link the repo
-3. Root directory: repository root (`/`)
-4. Build command: `npm run build` (auto-detected)
-5. Output directory: `dist` (auto-detected)
-6. Add the three EmailJS env vars in Vercel Project Settings → Environment Variables
+
+## Deploying
+
+This project is ready for Vercel. Just push to GitHub, link your repo on Vercel, and set the EmailJS environment variables. Build and output settings are auto-detected.
+
 
 ## Troubleshooting
 
-- Build fails with asset-check error
-	- Ensure every import in `src/assets/icons/index.js` points to a file that exists under `src/assets/icons/`.
-	- Add missing files or fix the import paths, then re-run `npm run build`.
+- Asset check fails: Make sure all icons in `src/assets/icons/index.js` exist
+- Black screen: Check for missing assets or build errors
+- Email not sending: Confirm EmailJS variables are set locally and on Vercel
 
-- Black screen after deploy
-	- Check the browser console for missing asset errors.
-	- Verify Vercel project uses the repo root and outputs `dist`.
-	- Confirm the pre-build asset check passes locally.
-
-- Large bundle or slow load
-	- Consider lazy-loading heavy models/audio, compressing GLB/MP3 assets, and splitting code via dynamic `import()`.
-	- Vite warnings about chunk size are informational; optimizations can be added as needed.
-
-- Email not sending
-	- Verify the three EmailJS variables are set in `.env` (locally) and in Vercel (production).
-	- Ensure your EmailJS template expects `from_name`, `from_email`, and `message`.
-	- Configure allowed origins in EmailJS if required.
 
 ## Contributing
 
-Feel free to open issues or PRs for improvements and new features.
+Open to suggestions and improvements. PRs welcome.
+
 
 ## License
 
-This project is provided as-is; add a LICENSE file to specify terms if you plan to distribute.
+This project is provided as-is. Add a LICENSE file if you plan to distribute.
