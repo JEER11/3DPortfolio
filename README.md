@@ -58,10 +58,10 @@ Do not commit secrets. Use `.env.example` as a template.
 
 ## Scripts
 
-- `npm run dev` — Start the dev server
-- `npm run build` — Pre-build asset check, then build for production
-- `npm run preview` — Preview the production build
-- `npm run check:assets` — Verify all icons exist on disk
+- `npm run dev`  Start the dev server
+- `npm run build`  Pre-build asset check, then build for production
+- `npm run preview`  Preview the production build
+- `npm run check:assets`  Verify all icons exist on disk
 
 
 ## Project Structure
@@ -81,9 +81,9 @@ src/
 
 
 Other files:
-- `vite.config.js` — Vite config
-- `vercel.json` — Vercel deployment config
-- `scripts/check-assets.js` — Pre-build asset check
+- `vite.config.js`  Vite config
+- `vercel.json`  Vercel deployment config
+- `scripts/check-assets.js`  Pre-build asset check
 
 
 ## How It Works
@@ -92,11 +92,6 @@ Other files:
 - Routing with React Router
 - Contact form uses EmailJS (no backend needed)
 - Asset check script ensures all icons exist before build
-
-
-## Deploying
-
-This project is ready for Vercel. Just push to GitHub, link your repo on Vercel, and set the EmailJS environment variables. Build and output settings are auto-detected.
 
 
 ## Troubleshooting
