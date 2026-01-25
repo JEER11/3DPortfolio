@@ -5,7 +5,6 @@ Live: [https://jeraldineportfolio.vercel.app](https://jeraldineportfolio.vercel.
 
 This is my interactive 3D portfolio, built with React, Vite, Tailwind CSS, and React Three Fiber. It showcases my projects, skills, and experience in a clean, modern interface. The site is fully responsive and deployed on Vercel.
 
-![Website Screenshot](src/assets/images/hero.jpg)
 
 
 ## Tech Stack
