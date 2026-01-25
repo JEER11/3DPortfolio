@@ -3,15 +3,13 @@ import { Link } from "react-router-dom";
 import { CTA } from "../components";
 import { projects } from "../constants";
 import { arrow } from "../assets/icons";
+import ProjectGifStack from "../components/ProjectGifStack";
 
 const Projects = () => {
   return (
     <section className='max-container'>
-      <h1 className='head-text dark:text-white'>
-        My{" "}
-        <span className='blue-gradient_text drop-shadow font-semibold'>
-          Projects
-        </span>
+      <h1 className='head-text dark:text-white' style={{marginTop: 0, marginBottom: '1.5rem', display: 'block'}}>
+        My <span className='blue-gradient_text drop-shadow font-semibold' style={{WebkitBackgroundClip: 'text', color: 'transparent', backgroundImage: 'linear-gradient(to right, #a78bfa, #7c3aed)'}}>Projects</span>
       </h1>
 
       <p className='text-slate-500 dark:text-slate-300 mt-2 leading-relaxed'>
@@ -19,18 +17,22 @@ const Projects = () => {
       </p>
 
       <div className='flex flex-wrap my-20 gap-16'>
-        {projects.map((project) => (
+        {projects.map((project, idx) => (
           <div className='lg:w-[400px] w-full' key={project.name}>
-            <div className='block-container w-12 h-12'>
-              <div className={`btn-back rounded-xl ${project.theme}`} />
-              <div className='btn-front rounded-xl flex justify-center items-center'>
-                <img
-                  src={project.iconUrl}
-                  alt='threads'
-                  className='w-1/2 h-1/2 object-contain'
-                  style={project.iconScale ? { transform: `scale(${project.iconScale})` } : {}}
-                />
+            <div className='flex items-center gap-3'>
+              <div className='block-container w-12 h-12'>
+                <div className={`btn-back rounded-xl ${project.theme}`} />
+                <div className='btn-front rounded-xl flex justify-center items-center'>
+                  <img
+                    src={project.iconUrl}
+                    alt='threads'
+                    className='w-1/2 h-1/2 object-contain'
+                    style={project.iconScale ? { transform: `scale(${project.iconScale})` } : {}}
+                  />
+                </div>
               </div>
+              {/* Add gif stack next to icon for first project only as example */}
+              {idx === 0 && <ProjectGifStack />}
             </div>
 
             <div className='mt-5 flex flex-col'>

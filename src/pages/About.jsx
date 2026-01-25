@@ -28,13 +28,8 @@ const About = () => {
   }, []);
   return (
     <section className='max-container'>
-      <h1 className='head-text dark:text-white'>
-        Hello, I'm{" "}
-        <span className='blue-gradient_text font-semibold drop-shadow'>
-          {" "}
-          Jeraldine!
-        </span>{" "}
-        
+      <h1 className='head-text dark:text-white' style={{marginTop: 0, marginBottom: '1.5rem', display: 'block'}}>
+        Hello, I'm <span className='blue-gradient_text font-semibold drop-shadow' style={{WebkitBackgroundClip: 'text', color: 'transparent', backgroundImage: 'linear-gradient(to right, #a78bfa, #7c3aed)'}}>Jeraldine</span>
       </h1>
 
       <div className='mt-5 flex flex-col gap-3 text-slate-500 dark:text-slate-300'>

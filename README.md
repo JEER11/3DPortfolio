@@ -1,11 +1,19 @@
 # 3D Portfolio Website
 
+<<<<<<< HEAD
 Live: [https://jeraldineportfolio.vercel.app](https://jeraldineportfolio.vercel.app)
 
 An interactive 3D portfolio built with React, Vite, Tailwind CSS, and React Three Fiber. Deployed on Vercel with a simple, reliable build pipeline and pre-build asset checks.
 
 ![screenshot](https://github.com/user-attachments/assets/7f0e9a73-5895-44e9-a189-eecd71d882e6)
 
+=======
+Live: https://jeraldineportfolio.vercel.app
+
+An interactive 3D portfolio built with React, Vite, Tailwind CSS, and React Three Fiber. Deployed on Vercel with a simple, reliable build pipeline and pre-build asset checks.
+
+![screenshot](https://github.com/user-attachments/assets/57830a71-e543-43b7-9800-491927b6d774)
+>>>>>>> d5bdf60 (Update portfolio: new gif stack, restored headings, UI fixes)
 
 ## Tech stack
 
