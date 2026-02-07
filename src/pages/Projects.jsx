@@ -31,8 +31,9 @@ const Projects = () => {
                   />
                 </div>
               </div>
-              {/* Add gif stack next to icon for first project only as example */}
-              {idx === 0 && <ProjectGifStack />}
+              {/* Show gif stack next to the AI Medical Website and NJIT Kiosk projects */}
+              {project.name === 'AI Medical Website' && <ProjectGifStack setName="medical" />}
+              {project.name === 'NJIT Interactive Kiosk' && <ProjectGifStack setName="kiosk" />}
             </div>
 
             <div className='mt-5 flex flex-col'>

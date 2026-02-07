@@ -5,9 +5,14 @@ import DocDashCare from "../assets/images/DocDashCare.gif";
 import DocAssistBill from "../assets/images/DocAssistBill.gif";
 import KioskApp from "../assets/images/KioskApp.gif";
 
-const gifs = [DocDashCare, DocAssistBill, KioskApp];
+const GIF_SETS = {
+  medical: [DocDashCare, DocAssistBill],
+  kiosk: [KioskApp],
+  default: [DocDashCare, DocAssistBill, KioskApp],
+};
 
-export default function ProjectGifStack() {
+export default function ProjectGifStack({ setName = 'default' }) {
+  const gifs = GIF_SETS[setName] || GIF_SETS.default;
   const [open, setOpen] = useState(false);
   const [displayGifs, setDisplayGifs] = useState(gifs);
   const [hoveredIndex, setHoveredIndex] = useState(null);
