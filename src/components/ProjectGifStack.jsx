@@ -3,8 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import DocDashCare from "../assets/images/DocDashCare.gif";
 import DocAssistBill from "../assets/images/DocAssistBill.gif";
+import KioskApp from "../assets/images/KioskApp.gif";
 
-const gifs = [DocDashCare, DocAssistBill];
+const gifs = [DocDashCare, DocAssistBill, KioskApp];
 
 export default function ProjectGifStack() {
   const [open, setOpen] = useState(false);
