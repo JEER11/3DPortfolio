@@ -4,11 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import DocDashCare from "../assets/images/DocDashCare.gif";
 import DocAssistBill from "../assets/images/DocAssistBill.gif";
 import KioskApp from "../assets/images/KioskApp.gif";
+import AISearch from "../assets/images/AISearch.gif";
 
 const GIF_SETS = {
   medical: [DocDashCare, DocAssistBill],
   kiosk: [KioskApp],
   default: [DocDashCare, DocAssistBill, KioskApp],
+  aisearch: [AISearch],
 };
 
 export default function ProjectGifStack({ setName = 'default' }) {

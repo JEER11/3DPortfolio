@@ -34,6 +34,7 @@ const Projects = () => {
               {/* Show gif stack next to the AI Medical Website and NJIT Kiosk projects */}
               {project.name === 'AI Medical Website' && <ProjectGifStack setName="medical" />}
               {project.name === 'NJIT Interactive Kiosk' && <ProjectGifStack setName="kiosk" />}
+              {project.name === 'AI Video Search Extension' && <ProjectGifStack setName="aisearch" />}
             </div>
 
             <div className='mt-5 flex flex-col'>
