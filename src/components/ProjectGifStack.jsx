@@ -41,66 +41,161 @@ export default function ProjectGifStack({ setName = 'default' }) {
     if (animTimeoutRef.current) clearTimeout(animTimeoutRef.current);
     animTimeoutRef.current = setTimeout(() => {
       setDisplayGifs((prev) => {
-        const picked = prev[idx];
-        const rest = prev.filter((_, i) => i !== idx);
-        return [picked, ...rest];
-      });
-      setAnimatingToTop(null);
-      animTimeoutRef.current = null;
-    }, ANIM_DURATION);
-  };
+                  return (
+                    <motion.div
+                      key={`object-stack`}
+                      style={{
+                        position: 'absolute',
+                        left: 0,
+                        top: 0,
+                        width: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        zIndex,
+                      }}
+                    >
+                      <motion.div
+                        style={{
+                          display: 'inline-block',
+                          borderRadius: 12,
+                          overflow: 'visible',
+                          boxSizing: 'border-box',
+                          width: '90%',
+                          maxWidth: '720px',
+                          position: 'relative',
+                          background: 'transparent',
+                        }}
+                        animate={{ scale: 1 }}
+                        transition={{ type: 'spring', stiffness: 300, damping: 28 }}
+                      >
+                        {/* Base image: smaller and pushed down */}
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                          <img
+                            src={baseImg}
+                            alt={`Project base image`}
+                            style={{
+                              display: 'block',
+                              width: '74%',
+                              margin: '0 auto',
+                              height: 'auto',
+                              objectFit: 'cover',
+                              transform: 'translateY(40px) scale(0.86)',
+                              transition: 'transform .28s ease',
+                              borderRadius: 10,
+                              boxShadow: '0 8px 20px rgba(2,6,23,0.28)',
+                              zIndex: 1,
+                              position: 'relative',
+                            }}
+                            draggable={false}
+                          />
+                        </div>
 
-  // when opening, nothing special; all gifs render as images (browser behavior)
+                        {/* Overlay frame for GIF: mimics other project frames */}
+                        <div
+                          style={{
+                            position: 'absolute',
+                            left: '50%',
+                            top: '8%',
+                            transform: 'translate(-50%, 0)',
+                            width: '86%',
+                            borderRadius: 10,
+                            overflow: 'hidden',
+                            zIndex: 3,
+                            boxShadow: '0 22px 48px rgba(2,6,23,0.55)',
+                            border: '4px solid rgba(255,255,255,0.92)',
+                            background: '#0b1020',
+                          }}
+                        >
+                          <img
+                            src={topImg}
+                            alt={`Project gif overlay`}
+                            style={{
+                              display: 'block',
+                              width: '100%',
+                              height: 'auto',
+                              maxHeight: '520px',
+                              objectFit: 'contain',
+                            }}
+                            draggable={false}
+                          />
+                        </div>
+                      </motion.div>
+                    </motion.div>
+                  );
+                  return (
+                    <motion.div
+                      key={`object-stack`}
+                      style={{
+                        position: 'absolute',
+                        left: 0,
+                        top: 0,
+                        width: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        zIndex,
+                      }}
+                    >
+                      <motion.div
+                        style={{
+                          display: 'inline-block',
+                          borderRadius: 8,
+                          overflow: 'hidden',
+                          boxSizing: 'border-box',
+                            boxShadow: '0 10px 24px rgba(15,22,60,0.35)',
+                            width: '90%',
+                          maxWidth: '720px',
+                          position: 'relative',
+                            background: '#0b1020',
+                            border: '4px solid rgba(255,255,255,0.06)',
+                            padding: '8px',
+                        }}
+                        animate={{ scale: 1 }}
+                        transition={{ type: 'spring', stiffness: 300, damping: 28 }}
+                      >
+                        <img
+                          src={baseImg}
+                          alt={`Project base image`}
+                          style={{
+                            display: 'block',
+                            width: '76%',
+                            margin: '0 auto',
+                            height: 'auto',
+                            objectFit: 'cover',
+                            transform: 'translateY(36px) scale(0.88)',
+                            transition: 'transform .28s ease',
+                            borderRadius: 8,
+                            boxShadow: '0 8px 18px rgba(2,6,23,0.28)',
+                            zIndex: 1,
+                            position: 'relative',
+                          }}
+                          draggable={false}
+                        />
 
-  return (
-    <div style={{ position: "relative", display: "inline-block" }}>
-      <ul
-        style={{ position: "relative", height: "48px", width: `${96 + (displayGifs.length - 1) * 32}px`, cursor: "pointer" }}
-        onClick={() => setOpen(true)}
-      >
-        {displayGifs.map((gif, idx) => (
-          <li
-            key={gif}
-            style={{
-              position: "absolute",
-              left: idx * 32,
-              top: 0,
-              width: "96px",
-              height: "48px",
-              borderRadius: "12px",
-              boxShadow: "0 1px 4px rgba(0,0,0,0.12)",
-              zIndex: idx,
-              overflow: "hidden",
-              background: "#222",
-            }}
-          >
-            <img src={gif} alt={`Project gif ${idx + 1}`} style={{ width: "100%", height: "100%", objectFit: "cover" }} draggable={false} />
-          </li>
-        ))}
-      </ul>
+                        <img
+                          src={topImg}
+                          alt={`Project gif overlay`}
+                          style={{
+                            position: 'absolute',
+                            left: '50%',
+                            transform: 'translate(-50%, -18%)',
+                            width: '86%',
+                            height: 'auto',
+                            maxHeight: '500px',
+                            objectFit: 'contain',
+                            pointerEvents: 'none',
+                            borderRadius: 8,
+                            boxShadow: '0 28px 56px rgba(2,6,23,0.6)',
+                            zIndex: 3,
+                          }}
+                          draggable={false}
+                        />
+                      </motion.div>
+                    </motion.div>
+                  );
+                }
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            style={{
-              position: "fixed",
-              top: 0,
-              left: 0,
-              width: "100vw",
-              height: "100vh",
-              background: "rgba(0,0,0,0.7)",
-              zIndex: 9999,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-            onClick={() => setOpen(false)}
-          >
-            <div style={{ position: "relative", width: 'min(650px, 80vw)', height: 'min(70vh, 800px)' }} onClick={(e) => e.stopPropagation()}>
-              {displayGifs.map((gif, idx) => {
                 const depth = Math.min(idx, MAX_PEEKS);
                 const isActive = idx === 0;
                 const isAnimating = animatingToTop === idx;
@@ -131,7 +226,7 @@ export default function ProjectGifStack({ setName = 'default' }) {
                       alignItems: 'center',
                       justifyContent: 'center',
                       zIndex,
-                      filter: `brightness(${dim}) saturate(${sat})`,
+                      filter: 'brightness(' + dim + ') saturate(' + sat + ')',
                       opacity: computedOpacity,
                       cursor: isActive ? 'default' : (animatingToTop ? 'default' : 'pointer'),
                       pointerEvents: (animatingToTop && animatingToTop !== idx) ? 'none' : 'auto',
@@ -166,12 +261,11 @@ export default function ProjectGifStack({ setName = 'default' }) {
                         alt={`Project gif ${idx + 1}`}
                         style={{
                           display: 'block',
-                          width: setName === 'object' ? 'auto' : '100%',
+                          width: '100%',
                           maxWidth: '100%',
                           height: 'auto',
-                          maxHeight: setName === 'object' ? '420px' : '60vh',
+                          maxHeight: '60vh',
                           objectFit: 'contain',
-                          background: '#0b1020',
                         }}
                         draggable={false}
                       />
