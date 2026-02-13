@@ -5,12 +5,15 @@ import DocDashCare from "../assets/images/DocDashCare.gif";
 import DocAssistBill from "../assets/images/DocAssistBill.gif";
 import KioskApp from "../assets/images/KioskApp.gif";
 import AISearch from "../assets/images/AISearch.gif";
+import ObjectDetectGif from "../assets/images/ObjectDetectt.gif";
+import ObjectDetectImg from "../assets/images/ObjectDetect.jpg";
 
 const GIF_SETS = {
   medical: [DocDashCare, DocAssistBill],
   kiosk: [KioskApp],
   default: [DocDashCare, DocAssistBill, KioskApp],
   aisearch: [AISearch],
+  object: [ObjectDetectGif, ObjectDetectImg],
 };
 
 export default function ProjectGifStack({ setName = 'default' }) {

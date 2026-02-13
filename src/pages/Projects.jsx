@@ -35,6 +35,7 @@ const Projects = () => {
               {project.name === 'AI Medical Website' && <ProjectGifStack setName="medical" />}
               {project.name === 'NJIT Interactive Kiosk' && <ProjectGifStack setName="kiosk" />}
               {project.name === 'AI Video Search Extension' && <ProjectGifStack setName="aisearch" />}
+              {project.name === 'ML Object Detection' && <ProjectGifStack setName="object" />}
             </div>
 
             <div className='mt-5 flex flex-col'>
