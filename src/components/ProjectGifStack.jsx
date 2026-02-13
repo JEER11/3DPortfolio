@@ -153,9 +153,9 @@ export default function ProjectGifStack({ setName = 'default' }) {
                         width: '90%',
                         height: 'auto',
                         maxWidth: '100%',
+                        border: frameActive ? '4px solid rgba(255,255,255,0.92)' : '2px solid rgba(255,255,255,0.9)',
                       }}
                       animate={{
-                        borderWidth: frameActive ? 4 : 2,
                         scale: frameActive ? 1.01 : 1,
                         boxShadow: frameActive ? '0 22px 48px rgba(15,22,60,0.5)' : boxShadow,
                       }}
@@ -166,9 +166,12 @@ export default function ProjectGifStack({ setName = 'default' }) {
                         alt={`Project gif ${idx + 1}`}
                         style={{
                           display: 'block',
-                          width: '100%',
+                          width: setName === 'object' ? 'auto' : '100%',
+                          maxWidth: '100%',
                           height: 'auto',
+                          maxHeight: setName === 'object' ? '420px' : '60vh',
                           objectFit: 'contain',
+                          background: '#0b1020',
                         }}
                         draggable={false}
                       />
