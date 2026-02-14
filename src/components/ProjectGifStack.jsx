@@ -101,52 +101,98 @@ export default function ProjectGifStack({ setName = "default" }) {
           >
             <div style={{ position: "relative", width: "min(650px, 80vw)", height: "min(70vh, 800px)" }} onClick={(e) => e.stopPropagation()}>
               {displayGifs.map((gif, idx) => {
+                // For the ML Object Detection stack, use the same stacked card animation as the medical stack
                 if (setName === "object") {
-                  if (idx !== 0) return null;
-                  const baseImg = displayGifs[1];
-                  const topImg = displayGifs[0];
-
-                  return (
-                    <motion.div
-                      key={`object-stack`}
-                      style={{ position: "absolute", left: 0, top: 0, width: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}
-                    >
-                      <div style={{ width: "90%", maxWidth: 720, position: "relative", background: "transparent" }}>
-                        <img
-                          src={baseImg}
-                          alt="base"
+                  // GIF always on top, JPG always on bottom visually
+                  if (idx === 0) {
+                    // Top GIF card, always at top visually
+                    return (
+                      <motion.div
+                        key="object-gif"
+                        style={{
+                          position: "absolute",
+                          left: 0,
+                          top: 0,
+                          width: "100%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          zIndex: 10,
+                        }}
+                        animate={{
+                          top: 0,
+                          scale: 1,
+                        }}
+                        transition={{ type: "spring", stiffness: 260, damping: 32 }}
+                      >
+                        <motion.div
                           style={{
-                            display: "block",
-                            width: "74%",
-                            margin: "0 auto",
-                            transform: "translateY(40px) scale(0.86)",
-                            borderRadius: 10,
-                            boxShadow: "0 8px 20px rgba(2,6,23,0.28)",
-                          }}
-                          draggable={false}
-                        />
-
-                        <div
-                          style={{
-                            position: "absolute",
-                            left: "50%",
-                            top: "8%",
-                            transform: "translate(-50%, 0)",
-                            width: "86%",
+                            display: "inline-block",
                             borderRadius: 10,
                             overflow: "hidden",
-                            boxShadow: "0 22px 48px rgba(2,6,23,0.55)",
+                            boxSizing: "border-box",
+                            width: "fit-content",
+                            maxWidth: "95%",
                             border: "4px solid rgba(255,255,255,0.92)",
-                            background: "#0b1020",
+                            boxShadow: "0 22px 48px rgba(2,6,23,0.55)",
                           }}
                         >
-                          <img src={topImg} alt="overlay" style={{ display: "block", width: "100%", height: "auto", maxHeight: 520, objectFit: "contain" }} draggable={false} />
-                        </div>
-                      </div>
-                    </motion.div>
-                  );
+                          <img src={displayGifs[0]} alt="gif" style={{ display: "block", width: "100%", height: "auto", maxHeight: 750, objectFit: "contain" }} draggable={false} />
+                        </motion.div>
+                      </motion.div>
+                    );
+                  }
+                  if (idx === 1) {
+                    // Bottom JPG card: slides down on hover, animates up to top on click
+                    const isHovered = hoveredIndex === 1 && !animatingToTop;
+                    const isAnimating = animatingToTop === 1;
+                    // On hover, slide down; on click, animate up to top
+                    const baseOffset = 200;
+                    const hoverOffset = isHovered ? 28 : 0;
+                    const targetY = isAnimating ? -60 : baseOffset + hoverOffset;
+                    const zIndex = isAnimating ? 20 : 4;
+                    return (
+                      <motion.div
+                        key="object-jpg"
+                        style={{
+                          position: "absolute",
+                          left: 0,
+                          top: baseOffset,
+                          width: "100%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          zIndex,
+                        }}
+                        onMouseEnter={() => setHoveredIndex(1)}
+                        onMouseLeave={() => setHoveredIndex(null)}
+                        onClick={() => {
+                          if (!animatingToTop) startBringToTopAnimation(1);
+                        }}
+                        animate={{ top: targetY, scale: isAnimating ? 1.02 : 1 }}
+                        transition={{ type: "spring", stiffness: 260, damping: 32 }}
+                      >
+                        <motion.div
+                          style={{
+                            display: "inline-block",
+                            borderRadius: 10,
+                            overflow: "hidden",
+                            boxSizing: "border-box",
+                            width: "fit-content",
+                            maxWidth: "90%",
+                            border: isHovered || isAnimating ? "4px solid rgba(255,255,255,0.92)" : "2px solid rgba(255,255,255,0.9)",
+                            boxShadow: isHovered || isAnimating ? "0 22px 48px rgba(2,6,23,0.55)" : "0 8px 20px rgba(2,6,23,0.28)",
+                          }}
+                        >
+                          <img src={displayGifs[1]} alt="jpg" style={{ display: "block", width: "100%", height: "auto", maxHeight: 600, objectFit: "contain" }} draggable={false} />
+                        </motion.div>
+                      </motion.div>
+                    );
+                  }
+                  return null;
                 }
 
+                // Generic stacked-card rendering for other projects (medical, kiosk, aisearch, default)
                 const depth = Math.min(idx, MAX_PEEKS);
                 const isActive = idx === 0;
                 const isAnimating = animatingToTop === idx;
@@ -162,8 +208,6 @@ export default function ProjectGifStack({ setName = "default" }) {
                 const targetY = isAnimating ? -8 : base + hoverOffset;
                 const targetScale = isAnimating ? 1.02 : scale;
                 const zIndex = isAnimating ? displayGifs.length + 10 : isActive ? displayGifs.length + 3 : displayGifs.length + 1 - idx;
-
-                const frameActive = isActive || isAnimating;
 
                 return (
                   <motion.div
@@ -205,11 +249,11 @@ export default function ProjectGifStack({ setName = "default" }) {
                         width: "90%",
                         height: "auto",
                         maxWidth: "100%",
-                        border: frameActive ? "4px solid rgba(255,255,255,0.92)" : "2px solid rgba(255,255,255,0.9)",
+                        border: isActive ? "4px solid rgba(255,255,255,0.92)" : "2px solid rgba(255,255,255,0.9)",
                       }}
                       animate={{
-                        scale: frameActive ? 1.01 : 1,
-                        boxShadow: frameActive ? "0 22px 48px rgba(15,22,60,0.5)" : boxShadow,
+                        scale: isActive ? 1.01 : 1,
+                        boxShadow: isActive ? "0 22px 48px rgba(15,22,60,0.5)" : boxShadow,
                       }}
                       transition={{ type: "spring", stiffness: 300, damping: 28 }}
                     >
@@ -225,3 +269,4 @@ export default function ProjectGifStack({ setName = "default" }) {
     </div>
   );
 }
+
